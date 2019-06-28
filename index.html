@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8">
+    <title>Drawing Board</title>
+
+  </head>
+  <body>
+
+    <div class="container">
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript">
+
+  const container = document.querySelector('.container');
+
+  const panel = document.createElement('div');
+  panel.classList.add('panel');
+  panel.style.height = '50px';
+  panel.style.width = '5.8%';
+  panel.style.verticalAlign = 'top';
+  panel.style.display = 'inline-block';
+  panel.style.backgroundColor = 'white';
+  panel.style.border = '2px solid black';
+
+  container.addEventListener('mouseover', function (e) {
+    e.target.style.backgroundColor = 'black';
+  });
+
+  for (let j = 0; j < 16; j++){
+    for (let i = 0; i < 16; i++){
+      container.appendChild(panel.cloneNode(true));
+    }
+  }
+
+</script>
