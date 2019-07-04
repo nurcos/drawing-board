@@ -1,6 +1,22 @@
+.top-row {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
 .container {
   margin: 0 auto 0 auto;
-  width: 50%;
+  border: 2px solid black;
   text-align: center;
+}
+
+.panel {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid black;
+  vertical-align: top;
+}
+
+.hover {
   background-color: black;
 }

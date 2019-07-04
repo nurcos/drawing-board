@@ -8,6 +8,10 @@
   </head>
   <body>
 
+    <div class="top-row">
+      <button class="button" type="button" name="button">Reset</button>
+    </div>
+
     <div class="container">
     </div>
 
@@ -18,22 +22,33 @@
 
   const container = document.querySelector('.container');
 
-  const panel = document.createElement('div');
-  panel.classList.add('panel');
-  panel.style.height = '50px';
-  panel.style.width = '5.8%';
-  panel.style.verticalAlign = 'top';
-  panel.style.display = 'inline-block';
-  panel.style.backgroundColor = 'white';
-  panel.style.border = '2px solid black';
+  let size = 16;
+  createGrid(size);
 
-  container.addEventListener('mouseover', function (e) {
-    e.target.style.backgroundColor = 'black';
+  const button = document.querySelector('.button');
+  button.addEventListener('click', () => {
+    size = prompt('enter grid size');
+    while(container.firstChild){
+      container.removeChild(container.firstChild)
+    }
+    createGrid(size);
   });
 
-  for (let j = 0; j < 16; j++){
-    for (let i = 0; i < 16; i++){
-      container.appendChild(panel.cloneNode(true));
+  function createGrid(sizeEntered) {
+    for (let j = 0; j < sizeEntered; j++){
+      for (let i = 0; i < sizeEntered; i++){
+        const panel = document.createElement('div');
+        panel.id = 'panel-' + i;
+        panel.classList.add('panel');
+        panel.style.width = `${750 / sizeEntered}px`;
+        panel.style.height = `${750 / sizeEntered}px`;
+        panel.addEventListener('mouseover', function () {
+          this.classList.add('hover');
+        });
+        container.appendChild(panel);
+      }
+      const linebreak = document.createElement('br');
+      container.appendChild(linebreak);
     }
   }
 
