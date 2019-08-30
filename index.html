@@ -2,14 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>Drawing Board</title>
-
   </head>
   <body>
 
+    <h1>Drawing Board</h1>
+
     <div class="top-row">
-      <button class="button" type="button" name="button">Reset</button>
+      <div class="button">RESET</div>
     </div>
 
     <div class="container">
@@ -27,7 +29,7 @@
 
   const button = document.querySelector('.button');
   button.addEventListener('click', () => {
-    size = prompt('enter grid size');
+    size = prompt('enter grid size (max 40):');
     while(container.firstChild){
       container.removeChild(container.firstChild)
     }
@@ -35,6 +37,11 @@
   });
 
   function createGrid(sizeEntered) {
+
+    if(sizeEntered > 40){
+      sizeEntered = 40;
+    }
+
     for (let j = 0; j < sizeEntered; j++){
       for (let i = 0; i < sizeEntered; i++){
         const panel = document.createElement('div');
